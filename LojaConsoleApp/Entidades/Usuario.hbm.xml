@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="LojaConsoleApp"
+                   namespace="LojaConsoleApp.Entidades">
+  <class name="Usuario" table="USUARIOS_TB">
+    <id name="Id" column="USR_ID">
+      <generator class="identity" />
+    </id>
+    <property name="Nome" column="USR_NOME" />
+  </class>   
+</hibernate-mapping>
