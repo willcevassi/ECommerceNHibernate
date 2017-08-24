@@ -1,4 +1,5 @@
 ﻿using LojaConsoleApp.Entidades;
+using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using System;
@@ -12,6 +13,14 @@ namespace LojaConsoleApp.Infra
 {
     public class NHibernateHelper
     {
+        private static ISessionFactory fabrica = CriaSessionFactory();
+
+        private static ISessionFactory CriaSessionFactory()
+        {
+            Configuration cfg = GetConfiguration();
+            return fabrica = cfg.BuildSessionFactory();
+        }
+
         public static Configuration GetConfiguration()
         {
             Configuration cfg = new Configuration();
@@ -26,6 +35,11 @@ namespace LojaConsoleApp.Infra
             Configuration cfg = GetConfiguration();
             new SchemaExport(cfg).Create(true, true);
 
+        }
+
+        public static ISession AbrirSessao()
+        {
+            return fabrica.OpenSession();
         }
 
     }

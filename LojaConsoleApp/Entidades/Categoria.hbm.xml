@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="LojaConsoleApp"
+                   namespace="LojaConsoleApp.Entidades">
+  <class name="Categoria" table="CATEGORIAS_TB">
+    <id name="Id" column="CAT_ID">
+      <generator class="identity" />
+    </id>
+    <property name="Nome" column="CAT_NOME" />
+
+    <bag name="Produtos" fetch="select">
+      <key column="PRO_CATEGORIA_ID"/>
+      <one-to-many class="Produto"/>      
+    </bag>
+  </class>
+</hibernate-mapping>

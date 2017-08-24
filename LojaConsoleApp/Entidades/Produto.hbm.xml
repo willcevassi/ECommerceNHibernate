@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="LojaConsoleApp"
+                   namespace="LojaConsoleApp.Entidades">
+  <class name="Produto" table="PRODUTOS_TB">
+    <id name="Id" column="PRO_ID">
+      <generator class="identity" />
+    </id>
+    <property name="Nome" column="PRO_NOME" />
+    <property name="Preco" column="PRO_PRECO_UNITARIO" />
+    <property name="DataUltimaCompra" column="PRO_DT_ULTIMA_COMPRA" />
+
+    <many-to-one name="Categoria" column="PRO_CATEGORIA_ID" fetch="join">      
+      
+    </many-to-one>
+  </class>
+</hibernate-mapping>
