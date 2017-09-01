@@ -2,16 +2,16 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
                    assembly="LojaConsoleApp"
                    namespace="LojaConsoleApp.Entidades">
-  <class name="Categoria" table="CATEGORIAS_TB">
+  <class name="Grupo" table="GRUPOS_TB">
     <cache usage="nonstrict-read-write"></cache>
-    <id name="Id" column="CAT_ID">
+    <id name="Id" column="GRP_ID">
       <generator class="identity" />
     </id>
-    <property name="Nome" column="CAT_NOME" />
-
-    <bag name="Produtos" fetch="select">
-      <key column="PRO_CATEGORIA_ID"/>
-      <one-to-many class="Produto"/>
+    <property name="Nome" column="GRP_NOME" />
+    <bag name="Usuarios" table="USUARIO_GRUPO_TB" inverse="true">
+      <key column="GRP_ID" foreign-key="fk_USUARIO_GRUPO_TB_GRP_ID"/>
+      <many-to-many column="USR_ID" class="Usuario"/>
     </bag>
   </class>
 </hibernate-mapping>
+

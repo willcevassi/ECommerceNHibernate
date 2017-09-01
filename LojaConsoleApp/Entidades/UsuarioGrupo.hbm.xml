@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="LojaConsoleApp"
+                   namespace="LojaConsoleApp.Entidades">
+  <class name="UsuarioGrupo" table="USUARIO_GRUPO_TB">
+    <cache usage="nonstrict-read-write"></cache>
+    <composite-id name="Id" class="UsuarioGrupoId">
+      <key-many-to-one name="Usuario" column="USR_ID" class="Usuario" />
+      <key-many-to-one name="Grupo" column="GRP_ID" class="Grupo" />
+    </composite-id>
+    <property name="Ativo" column="USRGRP_ATIVO" type="boolean" />
+  </class>
+</hibernate-mapping>

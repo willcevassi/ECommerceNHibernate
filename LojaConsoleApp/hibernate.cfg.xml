@@ -8,5 +8,7 @@
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
     <property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
+    <property name="cache.use_second_level_cache">true</property>
+    <property name="cache.provider_class">NHibernate.Caches.SysCache.SysCacheProvider,NHibernate.Caches.SysCache</property>
   </session-factory>
 </hibernate-configuration>

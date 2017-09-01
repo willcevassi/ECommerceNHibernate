@@ -6,7 +6,10 @@ using NHibernate;
 namespace LojaConsoleApp.DAL
 {
     public  class CategoriaDAL
+
     {
+      
+
         public Categoria Adiciona(Categoria categoria)
         {
             ISession session = NHibernateHelper.AbrirSessao();
@@ -21,6 +24,11 @@ namespace LojaConsoleApp.DAL
         {
             ISession session = NHibernateHelper.AbrirSessao();
             return (Categoria)session.Load<Categoria>(Id);
+        }
+
+        public Categoria GetCategoria(int id, ISession session)
+        {
+            return session.Load<Categoria>(id);
         }
     }
 }

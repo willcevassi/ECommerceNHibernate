@@ -2,6 +2,7 @@
 using LojaConsoleApp.Entidades;
 using NHibernate;
 using LojaConsoleApp.Infra;
+using System.Collections;
 
 namespace LojaConsoleApp.DAL
 {
@@ -17,5 +18,9 @@ namespace LojaConsoleApp.DAL
             session.Close();
             return produto;
         }
+
+        
     }
+
+
 }

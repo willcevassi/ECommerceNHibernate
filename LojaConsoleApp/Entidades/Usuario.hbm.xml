@@ -3,9 +3,14 @@
                    assembly="LojaConsoleApp"
                    namespace="LojaConsoleApp.Entidades">
   <class name="Usuario" table="USUARIOS_TB">
+    <cache usage="nonstrict-read-write"></cache>
     <id name="Id" column="USR_ID">
       <generator class="identity" />
     </id>
     <property name="Nome" column="USR_NOME" />
+    <bag name="Grupos" table="USUARIO_GRUPO_TB">
+      <key column="USR_ID" foreign-key="USUARIO_GRUPO_TB_USR_ID"/>
+      <many-to-many column="GRP_ID" class="Grupo" />
+    </bag>
   </class>   
 </hibernate-mapping>
